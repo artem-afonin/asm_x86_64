@@ -12,15 +12,15 @@ __iarray_sum:
     xorl %eax, %eax       # %eax for sum
     movq -0x8(%rbp), %rbx # %rbx for array pointer
     movl -0xc(%rbp), %ecx # %ecx for array size
+    jmp 2f
 
     1:
-        cmpl $0x0, %ecx
-        jle 2f
         addl (%rbx), %eax
         addq $0x4, %rbx
         decl %ecx
-        jmp 1b
     2:
+        cmpl $0x0, %ecx
+        jg 1b
 
     leave
     ret
@@ -35,15 +35,15 @@ __larray_sum:
     xorq %rax, %rax       # %rax for sum
     movq -0x8(%rbp), %rbx # %rbx for array pointer
     movl -0xc(%rbp), %ecx # %ecx for array size
+    jmp 2f
 
     1:
-        cmpl $0x0, %ecx
-        jle 2f
         addq (%rbx), %rax
         addq $0x8, %rbx
         decl %ecx
-        jmp 1b
     2:
+        cmpl $0x0, %ecx
+        jg 1b
 
     leave
     ret
