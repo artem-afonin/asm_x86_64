@@ -9,14 +9,14 @@ __strlength:
 
     movq -0x10(%rbp), %rbx
     xorl %ecx, %ecx
+    jmp 2f
 
-    loop_start:
-        cmpq $0x0, (%rbx)
-        je loop_end
+    1:
         addq $0x1, %rbx
         incl %ecx
-        jmp loop_start
-    loop_end:
+    2:
+        cmpq $0x0, (%rbx)
+        jne 1b
 
     movl %ecx, %eax
     leave
