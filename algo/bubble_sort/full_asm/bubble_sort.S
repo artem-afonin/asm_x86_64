@@ -13,17 +13,11 @@ __bubble_sort:
     pushq %rbp
     movq %rsp, %rbp
     subq $0x10, %rsp
-
-    pushq %rax
-    pushq %rbx
-    pushq %rcx
-    pushq %rdx
-
     leal -1(%esi), %eax
     movl %eax, -0x10(%rbp)
+    pushq %rbx
 
     xorq %rax, %rax
-
     1: # i loop
         movl -0x10(%rbp), %ebx
         2: # j loop
@@ -41,10 +35,6 @@ __bubble_sort:
         cmpl %esi, %eax
         jl 1b
 
-    popq %rdx
-    popq %rcx
     popq %rbx
-    popq %rax
-
     leave
     ret
