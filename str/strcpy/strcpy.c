@@ -6,10 +6,11 @@
 
 extern void __strcpy(char *dest, char *src);
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     char *main_str, *dummy_str;
-    main_str = (char *) malloc(SIZE * sizeof(*main_str));
-    dummy_str = (char *) malloc(SIZE * sizeof(*main_str));
+    main_str = (char *)malloc(SIZE * sizeof(*main_str));
+    dummy_str = (char *)malloc(SIZE * sizeof(*main_str));
 
     __strcpy(main_str, "Hello, World!");
     __strcpy(dummy_str, "Dummy");

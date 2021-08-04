@@ -9,11 +9,12 @@ void fill_array_rand(int *array, int length);
 void print_array(int *array, int length);
 extern void __bubble_sort(int *array, int length);
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     srand(time(NULL));
 
     int *array;
-    array = (int *) malloc(SIZE * sizeof(*array));
+    array = (int *)malloc(SIZE * sizeof(*array));
     fill_array_rand(array, SIZE);
     print_array(array, SIZE);
     fprintf(stdout, "\n");
@@ -25,14 +26,18 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-void fill_array_rand(int *array, int length) {
-    for (int i = 0; i < length; ++i) {
+void fill_array_rand(int *array, int length)
+{
+    for (int i = 0; i < length; ++i)
+    {
         array[i] = rand() % 201 - 100;
     }
 }
 
-void print_array(int *array, int length) {
-    for (int i = 0; i < length; ++i) {
+void print_array(int *array, int length)
+{
+    for (int i = 0; i < length; ++i)
+    {
         fprintf(stdout, "%5d", array[i]);
     }
     fprintf(stdout, "\n");
