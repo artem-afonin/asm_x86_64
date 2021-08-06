@@ -34,8 +34,9 @@ extern void __ll_append(long long x, long long y, struct LinkedList *list);
  * @param long long *x            - variable to store X coordinate
  * @param long long *y            - variable to store Y coordinate
  * @param struct LinkedList *list - list pointer
+ * @return int - -1 if index is uncorrect, else 0 if element found
  */
-extern void __ll_get(int index, long long *x, long long *y, struct LinkedList *list);
+extern int __ll_get(int index, long long *x, long long *y, struct LinkedList *list);
 
 /**
  * Calculate current list size
@@ -48,6 +49,6 @@ extern int __ll_size(struct LinkedList *list);
  * Clear list and free all nodes memory
  * @param struct LinkedList **list - pointer to list which should be cleared. After clear - pointer should be NULL
  */
-extern void __ll_clear(struct LinkedList **list);
+extern void __ll_free(struct LinkedList **list);
 
 #endif

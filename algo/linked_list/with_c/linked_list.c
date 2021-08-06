@@ -16,10 +16,17 @@ int main(int argc, char **argv)
     fprintf(stdout, "After first append:\n");
     for (int i = 0; i < list_size; ++i)
     {
-        __ll_get(i, &x, &y, list);
-        fprintf(stdout, "%4lld %4lld\n", x, y);
+        if (~__ll_get(i, &x, &y, list))
+        {
+            fprintf(stdout, "%4lld %4lld\n", x, y);
+        }
+        else
+        {
+            fprintf(stdout, "error when get %d element\n", i);
+        }
     }
     fprintf(stdout, "\n");
+    __ll_free(&list);
 
     __ll_create(&list);
     __ll_append(6, 1, list);
@@ -28,10 +35,18 @@ int main(int argc, char **argv)
     fprintf(stdout, "After second append:\n");
     for (int i = 0; i < list_size; ++i)
     {
-        __ll_get(i, &x, &y, list);
-        fprintf(stdout, "%4lld %4lld\n", x, y);
+        if (~__ll_get(i, &x, &y, list))
+        {
+            fprintf(stdout, "%4lld %4lld\n", x, y);
+        }
+        else
+        {
+            fprintf(stdout, "error when get %d element\n", i);
+        }
     }
     fprintf(stdout, "\n");
+
+    __ll_free(&list);
 
     return 0;
 }
